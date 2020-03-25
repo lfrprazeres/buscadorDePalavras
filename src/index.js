@@ -1,7 +1,7 @@
+import './styles/main.scss';
 import $ from 'jquery';
 import adicionarPalavraParaBusca from './scripts/adicionarPalavraParaBusca';
-import './styles/main.scss';
-
+import 'bootstrap';
 let palavrasParaBusca = [];
 let contadorDePalavras = 0;
 const novaPalavra = `

@@ -46,6 +46,10 @@ module.exports = {
                   loader: 'sass-loader' // compiles Sass to CSS
                 }]
               },
+              {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+              }
         ],
     },
     plugins: [
