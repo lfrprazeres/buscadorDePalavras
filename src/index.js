@@ -3,8 +3,9 @@ import $ from 'jquery';
 import {
     desconsiderarPalavra,
     adicionarPalavra,
-    NovaPalavra,
-    buscarPalavras
+    buscarPalavras,
+    alterarPalavra,
+    excluirPalavra
 } from './scripts';
 import 'bootstrap';
 
@@ -14,14 +15,14 @@ let text = $('textarea');
 
 // adicionando o primeiro input para buscar palavra
 $(document).ready(() => {
-    $('.palavras').append(new NovaPalavra(contadorDePalavras).getElement());
+    palavrasParaBusca = adicionarPalavra(palavrasParaBusca, contadorDePalavras);
     contadorDePalavras++;
 })
 
 // adicionando palavra no array 
 $(".palavras").on('input', 'input', (event) => {
-    event.preventDefault();
-    palavrasParaBusca = adicionarPalavra(event.target, palavrasParaBusca)
+    let id = $(event.target).attr("id")[$(event.target).attr("id").length - 1];
+    palavrasParaBusca = alterarPalavra(palavrasParaBusca, id, event.target.value);
 })
 
 // função para desconsiderar palavra
@@ -32,8 +33,14 @@ $(".palavras").on('click', '.custom-control-input', (event) => {
 // função para adicionar nova palavra no array
 $(".novaPalavra").on("click", (e) => {
     e.preventDefault();
-    $(new NovaPalavra(contadorDePalavras).getElement()).appendTo($('.palavras'));
+    palavrasParaBusca = adicionarPalavra(palavrasParaBusca, contadorDePalavras);
     contadorDePalavras++;
+})
+
+$('.palavras').on("click", '.excluir', (e) => {
+    e.preventDefault();
+    let id = $(event.target).attr("id")[$(event.target).attr("id").length - 1];
+    palavrasParaBusca = excluirPalavra(palavrasParaBusca, id);
 })
 
 // função para buscar palavras

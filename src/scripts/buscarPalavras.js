@@ -7,7 +7,6 @@ export default function buscarPalavras(texto, palavrasParaBusca) {
         palavra: item.palavra.toLowerCase(),
         desconsiderar: item.desconsiderar
     }));
-    console.log(palavras)
     buscas.map(busca => {
         let palavraAceita;
         if(busca.palavra.trim().split(" ").length > 1){

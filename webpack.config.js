@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const WebPack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     module: {
