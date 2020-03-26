@@ -7,7 +7,9 @@ export default function excluirPalavra(palavras, id) {
             $(element).remove();
         }
     })
-    return palavras.filter(item => {
+    id = parseInt(id);
+    palavras = palavras.filter(item => {
         return item.id !== id
     });
+    return palavras
 }
