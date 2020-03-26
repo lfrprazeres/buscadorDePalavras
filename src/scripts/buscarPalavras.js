@@ -6,18 +6,20 @@ export default function buscarPalavras(texto, palavrasParaBusca) {
     buscas = palavrasParaBusca.map(item => ({
         palavra: item.palavra.toLowerCase(),
         desconsiderar: item.desconsiderar
-    }));
+    })).filter(item => item.palavra.trim() !== "");
     buscas.map(busca => {
         let palavraAceita;
         if(busca.palavra.trim().split(" ").length > 1){
-            let palavraComposta = busca.trim().split(" ").map(palavra => palavra.toLowerCase());
+            let palavraComposta = busca.palavra.trim().split(" ").map(palavra => palavra.toLowerCase());
             let recorrencia = 0;
             palavras.map((palavra, index) => {
                 if(palavra === palavraComposta[palavraComposta.length - 1]){
+                    let count = 1;
                     for(let i = palavraComposta.length - 2; i >= 0; i--){
-                        if(!(palavras[index - 1] === palavraComposta[i])){
+                        let isPalavraAnteriorIgual = palavras[index - count] === palavraComposta[i];
+                        if(!(isPalavraAnteriorIgual)){
                             break;
-                        } else if(palavras[index - 1] === palavraComposta[i] && i === 0) {
+                        } else if(isPalavraAnteriorIgual && i === 0) {
                             recorrencia += 1;
                             let resposta = respostas.filter(resposta => resposta.busca === busca);
                             if(resposta.length > 0) {
@@ -38,6 +40,7 @@ export default function buscarPalavras(texto, palavrasParaBusca) {
     
                             }
                         }
+                        count++;
                     }
                 }
             })
