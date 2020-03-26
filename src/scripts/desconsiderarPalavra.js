@@ -12,6 +12,7 @@ export default function desconsiderarPalavra(element, palavras) {
         })
     } else {
         palavras = palavras.map(item => {
+            console.log("item: ", item)
             if(item.id === id) {
                 return {
                     ...item,
@@ -21,5 +22,6 @@ export default function desconsiderarPalavra(element, palavras) {
             return item;
         })
     }
+    console.log("palavras: ", palavras)
     return palavras;
 }

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+$blue: #2878B7;
+
+body {
+    background-image: url(../images/wave.svg);
+    background-color: #fafafa;
+    background-size: contain;
+    background-position: center bottom;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.buscadorTitle {
+    background-color: $blue;
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+    
+}
+
+#text {
+    min-height: 400px;
+}
+
+.btn-outline-primary {
+    border-color: $blue;
+    color: $blue;
+    &:hover{
+        border-color: $blue;
+        background-color: $blue;
+    }
+}

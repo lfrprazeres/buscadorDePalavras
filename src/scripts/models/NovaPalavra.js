@@ -1,9 +1,10 @@
 export default class NovaPalavra {
     constructor(id){
         this.id = id;
+        this.desconsiderar = false;
         this.element = `
         <div class="form-group col-md-12">
-            <label> Digite um palavra ou uma frase para saber a sua recorrência </label>
+            <label> Digite a palavra ou a frase que deseja buscar </label>
             <div class="d-flex align-items-center palavraContainer">
                 <input type="text" class="form-control palavraInput" aria-describedby="emailHelp" id="palavra${this.id}"/>
                 <div class="custom-control custom-checkbox col-md-6 ml-2">

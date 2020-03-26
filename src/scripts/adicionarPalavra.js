@@ -4,12 +4,11 @@ export default function adicionarPalavra(element, palavras) {
     let id = $(element).closest('input').attr("id")[$(element).attr("id").length - 1];
     let temItem = palavras.filter(item => item.id === id).length > 0 ? true : false;
     let palavra = $(element).closest('.palavraContainer').find('.palavraInput').val();
-    console.log("palavra: ", palavra)
     if(!temItem) {
         palavras.push({
             id,
             palavra,
-            desconsiderar: $(element).is(":checked")
+            desconsiderar: false
         })
     } else {
         palavras = palavras.map(item => {
@@ -17,7 +16,7 @@ export default function adicionarPalavra(element, palavras) {
                 return {
                     id,
                     palavra,
-                    desconsiderar: $(element).is(":checked")
+                    desconsiderar: item.desconsiderar
                 }
             }
             return item;

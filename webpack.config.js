@@ -21,10 +21,14 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
+                test: /\.(png|svg|jpe?g|gif)$/,
+                use: {
+                  loader: 'file-loader',
+                  options: {
+                    name: "[name].[hash].[ext]",
+                    outputPath: "images"
+                  }
+                }
             },
             {
                 test: /\.(scss)$/,
@@ -32,7 +36,7 @@ module.exports = {
                   loader: 'style-loader', // inject CSS to page
                 }, {
                   loader: 'css-loader', // translates CSS into CommonJS modules
-                }, {
+                },{
                   loader: 'postcss-loader', // Run post css actions
                   options: {
                     plugins: function () { // post css plugins, can be exported to postcss.config.js

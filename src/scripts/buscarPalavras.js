@@ -1,12 +1,13 @@
 import $ from 'jquery';
 
 export default function buscarPalavras(texto, palavrasParaBusca) {
-    let palavras = texto.split(" ").map(palavra => palavra.toLowerCase()).filter(palavras => palavras !== ""),
+    let palavras = texto.split(/\s+/).map(palavra => palavra.toLowerCase()).filter(palavras => palavras !== ""),
     respostas = [],
     buscas = palavrasParaBusca.map(item => ({
         palavra: item.palavra.toLowerCase(),
-        desconsiderar: item.desconsiderar}
-    ));
+        desconsiderar: item.desconsiderar
+    }));
+    console.log(palavras)
     buscas.map(busca => {
         let palavraAceita;
         if(busca.palavra.trim().split(" ").length > 1){
@@ -42,7 +43,12 @@ export default function buscarPalavras(texto, palavrasParaBusca) {
                 }
             })
         } else {
-            palavraAceita = new RegExp("^[\.\,\;\!\?]{0,}" + busca + "[\.\,\;\!\?]{0,}$", "g");
+            if(busca.desconsiderar) {
+                palavraAceita = new RegExp(`^[\.\,\;\!\?]{0,}${busca.palavra}[\.\,\;\!\?]{0,}$`,"g");
+            } else {
+                palavraAceita = new RegExp(`[\.\,\;\!\?]{0,}${busca.palavra}[\.\,\;\!\?]{0,}`,"g");
+            }
+           
             let recorrencia = palavras.filter(p => p.match(palavraAceita));
             respostas.push({
                 busca,

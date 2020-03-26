@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start:dev": "webpack-dev-server",
+    "build-dev": "webpack-dev-server",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -21,9 +21,7 @@
   "homepage": "https://github.com/lfrprazeres/buscadorDePalavras",
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "browserify": "^16.5.0",
-    "jquery": "^3.4.1",
-    "watchify": "^3.11.1"
+    "jquery": "^3.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
