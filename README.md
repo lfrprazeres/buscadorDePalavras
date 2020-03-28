@@ -3,10 +3,12 @@
 ### Um buscador de palavras dentro de um texto
 Link para acesso: https://lfrprazeres.github.io/buscadorDePalavras/
 
+<pre>
 Buscador de Palavras:
 	Este programa é destinado para analisar recorrências de palavras-chave pré-determinadas pelo usuário em qualquer texto.
-	O texto deve ser copiado para a área indicada e as palavras, expressões ou frases que se deseja buscar devem ser inseridas no campo determinado. 
+	O texto deve ser copiado para a área indicada e as palavras, expressões ou frases que se deseja buscar devem ser inseridas no campo determinado.
   O público alvo desse programa constutuem-se por acadêmicos, estudantes, pesquisadores e todos aqueles que necessitem analisar objetivamente textos complexos.
+</pre>
 	
 ### Tecnologias usadas:
 - [x] JQuery;
